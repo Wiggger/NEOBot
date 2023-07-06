@@ -1,0 +1,9 @@
+@bot.slash_command(name="unban",description="Разбанить участника")
+async def unban(self, interaction, user: disnake.User):
+        await interaction.guild.unban(user)
+        await interaction.response.send_message(embed = disnake.Embed(
+                title="Разбан пользователя",
+                description=f"{user.mention} был разбанен",
+                colour=0x2F3136,
+        )
+        )
